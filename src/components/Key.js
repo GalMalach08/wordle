@@ -23,7 +23,7 @@ const Key = ({ keyVal }) => {
   }
 
   return (
-    <div className="row">
+    <div className="row_words">
       <div
         className={`key ${
           keyVal === "ENTER" || keyVal === "DELETE" ? "big" : ""

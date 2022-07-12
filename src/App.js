@@ -73,30 +73,34 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app">
+    <>
       <nav>
         <h1>Wordle</h1>
       </nav>
-      <AppContext.Provider
-        value={{
-          board,
-          setBoard,
-          selectLetter,
-          chosenWord,
-          attemptVal: attemptValue,
-          disabledLetters,
-          setDisabledLetters,
-          setGameOver,
-          gameOver,
-        }}
-      >
-        <div className="game">
-          <Board />
-          {gameOver.gameOver ? <GameOver /> : <Keyboard />}
-        </div>
-      </AppContext.Provider>
-      {alert && <div className="alert">The word doesnt excist on the list</div>}
-    </div>
+      <div className="container m-auto">
+        <AppContext.Provider
+          value={{
+            board,
+            setBoard,
+            selectLetter,
+            chosenWord,
+            attemptVal: attemptValue,
+            disabledLetters,
+            setDisabledLetters,
+            setGameOver,
+            gameOver,
+          }}
+        >
+          <div className="game">
+            <Board />
+            {gameOver.gameOver ? <GameOver /> : <Keyboard />}
+          </div>
+        </AppContext.Provider>
+        {alert && (
+          <div className="alert">The word doesnt excist on the list</div>
+        )}
+      </div>
+    </>
   );
 };
 

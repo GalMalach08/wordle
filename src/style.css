@@ -1,8 +1,4 @@
-.app {
-    background-color: #121212;
 
-
-  }
   
   body {
     padding: 0%;
@@ -11,8 +7,8 @@
     color: white;
     text-align: center;
 
-
   }
+  
   
   nav {
     height: 70px;
@@ -36,8 +32,7 @@
     font-size: 25px;
   }
   .game {
-    width: 100vw;
-    /* height: calc(100vh - 170px); */
+    /* width: 100vw; */
     display: flex;
     align-items: center;
     padding-top: 50px;
@@ -52,24 +47,30 @@
     flex-direction: column;
   }
   
-  .row {
+  .row_word {
     flex: 33%;
     display: flex;
     flex-direction: row;
     margin: 5px;
   }
 
-  .row > div:nth-child(2) {
+  .row_word > div:nth-child(2) {
     animation-delay: 0.2s;
   }
-  .row > div:nth-child(3) {
+  .row_word > div:nth-child(3) {
     animation-delay: 0.4s;
   }
-  .row > div:nth-child(4) {
+  .row_word > div:nth-child(4) {
     animation-delay: 0.6s;
   }
-  .row > div:nth-child(5) {
+  .row_word > div:nth-child(5) {
     animation-delay: 0.8s;
+  }
+
+  .row_words {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
   }
   .letter {
     flex: 33%;
@@ -80,15 +81,14 @@
     place-items: center;
     font-size: 30px;
     font-weight: bolder;
-    color: #121212;
+    color: #fff;
     font-family: Arial, Helvetica, sans-serif;
 
   }
-  .filled {
+  /* .filled {
     animation: bounce 0.1s ease-in-out forwards;
     --color:white;
-  }
-  
+  } */
 
   
   .correct {
@@ -196,7 +196,7 @@
   .key {
     width: 50px;
     height: 70px;
-    margin: 5px;
+    /* margin: 5px; */
     border-radius: 4px;
     display: grid;
     place-items: center;
@@ -212,4 +212,22 @@
   }
   .disabled {
     background-color: #3a393c;
+  }
+
+    
+  @media screen and (max-width: 500px) {
+    .key {
+      width: 24px;
+      height: 40px;
+      font-size: 12px;
+    }
+    .big{
+      width:48px;
+    }
+    .board {
+      width: 327px;
+      height: 350px;
+     
+  }
+    
   }
