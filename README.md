@@ -17,8 +17,7 @@ I invite you to take a look, I would love to hear any comments.
 ### Screenshots
 - **Game screen**
 
-![screencapture-localhost-3000-2022-07-26-18_27_29](https://user-images.githubusercontent.com/75367465/181047155-66b1dff3-e7a3-43fb-8f32-f6d38b7a2f42.png)
-
+![screencapture-localhost-3000-2022-07-26-18_27_01](https://user-images.githubusercontent.com/75367465/181047187-ba5ee549-acb2-4e40-9512-6b7dcb1e0985.png)
 - **Success screen**
 
 ![screencapture-localhost-3000-2022-07-26-18_27_29](https://user-images.githubusercontent.com/75367465/181047155-66b1dff3-e7a3-43fb-8f32-f6d38b7a2f42.png)
