@@ -38,7 +38,6 @@ const KeyBoard = () => {
 
   const handleKeyBoard = useCallback(
     (e) => {
-      console.log(e.key);
       const keysArr = lineOne.concat(lineTwo.concat(lineThree.concat()));
       if (e.key === "Enter") return selectLetter("ENTER");
       if (e.key === "Backspace") return selectLetter("DELETE");

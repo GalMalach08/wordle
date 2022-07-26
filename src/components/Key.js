@@ -10,8 +10,6 @@ const Key = ({ keyVal }) => {
     disabledLetters.forEach((disLetter) => {
       if (disLetter.letter === keyVal) {
         if (disLetter.correct) {
-          console.log("messss");
-
           correct = true;
         } else if (disLetter.almost) {
           almost = true;

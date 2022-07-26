@@ -1,10 +1,13 @@
 import React, { useState, createContext, useEffect } from "react";
+// Component
 import Board from "./components/Board";
 import Keyboard from "./components/KeyBoard";
 import GameOver from "./components/GameOver";
+// Utils
 import { boardDefault, generateWordsSet } from "./utils";
+// Style
 import "./style.css";
-
+// App context
 export const AppContext = createContext();
 
 const App = () => {
@@ -16,11 +19,13 @@ const App = () => {
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({ gameOver: false, success: false });
   const [alert, setAlert] = useState(false);
+
+  // Select a letter
   const selectLetter = (keyVal) => {
     if (keyVal === "ENTER") {
       sumbitWord(keyVal);
     } else if (keyVal === "DELETE") {
-      deleteWord();
+      deleteLetter();
     } else if (letterPosition <= 4) {
       const newBoard = [...board];
       newBoard[attemptValue][letterPosition] = keyVal;
@@ -29,20 +34,23 @@ const App = () => {
     }
   };
 
+  // Submit a word
   const sumbitWord = () => {
     if (letterPosition !== 5) return;
-
     let currentWord = `${board[attemptValue].join("").toLocaleLowerCase()}`;
     if (wordsSet.has(currentWord.toLowerCase())) {
       setAttemptValue((prev) => prev + 1);
       setLetterPosition(0);
       if (currentWord === chosenWord) {
-        setGameOver((prev) => {
-          return { ...prev, gameOver: true, success: true };
-        });
+        setTimeout(
+          () =>
+            setGameOver((prev) => {
+              return { ...prev, gameOver: true, success: true };
+            }),
+          [2000]
+        );
         return;
       }
-
       if (attemptValue === 5) {
         setGameOver((prev) => {
           return { ...prev, gameOver: true, success: false };
@@ -57,7 +65,8 @@ const App = () => {
     }
   };
 
-  const deleteWord = () => {
+  // Delete letter
+  const deleteLetter = () => {
     if (letterPosition === 0) return;
     const newBoard = [...board];
     newBoard[attemptValue][letterPosition - 1] = "";
@@ -65,11 +74,16 @@ const App = () => {
     setLetterPosition((prev) => prev - 1);
   };
 
-  useEffect(() => {
+  // Get new word from the data base
+  const getNewWord = async () => {
     generateWordsSet().then(({ wordSet, todaysWord }) => {
       setWordsSet(wordSet);
       setChosenWord(todaysWord);
     });
+  };
+
+  useEffect(() => {
+    getNewWord();
   }, []);
 
   return (
@@ -88,7 +102,9 @@ const App = () => {
             disabledLetters,
             setDisabledLetters,
             setGameOver,
+            getNewWord,
             gameOver,
+            setAttemptValue,
           }}
         >
           <div className="game">
