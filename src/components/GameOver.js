@@ -17,6 +17,7 @@ const GameOver = () => {
     setDisabledLetters,
   } = useContext(AppContext);
 
+  // Close the modal and start new game
   const handleClose = () => {
     setBoard([
       ["", "", "", "", ""],
@@ -33,6 +34,7 @@ const GameOver = () => {
     getNewWord();
   };
 
+  // Fire work
   let fxProps = {
     count: 4,
     interval: 100,
